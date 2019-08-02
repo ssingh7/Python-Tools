@@ -1,0 +1,2 @@
+Install packages form requirement.txt file
+pip install --user --requirement requirements.txt
