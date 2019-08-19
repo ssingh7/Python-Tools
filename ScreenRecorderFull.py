@@ -4,12 +4,20 @@ import cv2
 # from PIL import ImageGrab
 # for linux users
 import pyscreenshot as ImageGrab
+import sounddevice as sd
+from scipy.io.wavfile import write
+
+fs = 44100  # Sample rate
+seconds = 3000  # Duration of recording
+
+
+
 
 # four character code object for video writer
 fourcc = cv2.VideoWriter_fourcc(*'XVID')
 # video writer object
 out = cv2.VideoWriter("output.avi", fourcc, 8, (1920, 1080))
-
+myrecording = sd.rec(int(seconds * fs), samplerate=fs, channels=2)
 while True:
 	# capture computer screen
 	img = ImageGrab.grab()
@@ -24,6 +32,6 @@ while True:
   
 	if cv2.waitKey(1) == 27:
 		break
-
+write('output.wav', fs, myrecording) 
 out.release()
 cv2.destroyAllWindows()
