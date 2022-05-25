@@ -59,7 +59,7 @@ public==2.0.1
 PyAudio==0.2.11
 pycparser==2.19
 PyInstaller==3.5
-PyJWT==1.5.3
+PyJWT==2.4.0
 pylint==2.3.1
 pyparsing==2.4.0
 PyPDF2==1.26.0
